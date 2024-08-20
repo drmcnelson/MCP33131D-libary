@@ -1,0 +1,121 @@
+configuration
+
+read raw
+read volts
+read
+
+clock 10 1000 volts
+clock 10 1000 binary
+clock 10 1000
+
+clock 10 1000 buffer volts
+save testdata/test1.data
+clock 10 1000 buffer binary
+save testdata/test2.data
+clock 10 1000 buffer
+save testdata/test3.data
+
+clock 30 1000 buffer binary
+clock 20 1000 buffer binary
+clock 10 1000 buffer binary
+save testdata/test4.data
+
+clock 10 1000 average volts
+clock 10 1000 average
+
+clock 10 1000 sum volts
+clock 10 1000 sum
+
+
+trigger nowait trigger rising 0 clock 10 1000 buffer volts
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 buffer binary
+pulse pin 3 10
+!sleep 1
+save testdata/test5.data
+
+trigger nowait trigger rising 0 clock 10 1000 buffer
+pulse pin 3 10
+!sleep 1
+save testdata/test6.data
+
+trigger nowait trigger rising 0 clock 10 1000 average volts
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 average
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 sum volts
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 sum
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 volts
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 0 clock 10 1000 
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 average volts
+pulse pin 3 10
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 average
+pulse pin 3 10
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 sum volts
+pulse pin 3 10
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 sum
+pulse pin 3 10
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+start master clock 100000
+sync 5 rising 5 volt
+!sleep 1
+
+sync 5 rising 5
+!sleep 1
+
+sync 5 rising 5 binary
+!sleep 1
+
+trigger nowait trigger rising 3 sync 5 rising 5 volt
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 sync 5 rising 5 binary
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+trigger nowait trigger rising 3 sync 5 rising 5 
+pulse pin 3 10
+pulse pin 3 10
+!sleep 1
+
+stop master clock
+!sleep 1
+
+save testdata/test7.data
+save testdata/test8.data
